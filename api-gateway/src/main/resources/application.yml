@@ -1,0 +1,39 @@
+# Application name
+spring:
+  application:
+    name: api-gate-service
+
+# Spring Cloud Gateway Configuration
+cloud:
+  gateway:
+    routes:
+      # Route Definition for product-service
+      - id: product-service          # Route ID (unique identifier)
+        uri: lb://product-service    # Target URI where requests will be forwarded
+        predicates:
+          - Path=/api/product/**        # Predicate: Match requests with this path
+
+      # Route Definition for order-service
+      - id: order-service
+        uri: lb://order-service
+        predicates:
+          - Path=/api/order/**
+
+      # Route Definition for inventory-service
+      - id: inventory-service
+        uri: lb://inventory-service
+        predicates:
+          - Path=/api/inventory/**
+
+# Logging Configuration
+logging:
+  level:
+    root: info                       # Root logger level set to 'info'
+    org.springframework.cloud.gateway.route.RouteDefinitionLocator: info # Specific logging level for RouteDefinitionLocator
+    org.springframework.cloud.gateway: TRACE  # Specific logging level for Spring Cloud Gateway itself
+
+# Eureka client configuration
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka

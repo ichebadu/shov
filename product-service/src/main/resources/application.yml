@@ -1,0 +1,19 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://jazzmaniche:TechMongodb440!.@cluster0.vq70scr.mongodb.net/products_db?retryWrites=true&w=majority
+
+  application:
+    name: product-service
+server:
+  port: 8111
+
+
+
+
+eureka:
+  client:
+    register-with-client: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
