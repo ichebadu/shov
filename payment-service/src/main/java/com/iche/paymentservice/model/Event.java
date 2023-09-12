@@ -22,6 +22,6 @@ public class Event {
     @ManyToOne
     private User creator;
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.LAZY) // Changed fetch type to LAZY
-    private List<EventTicket> eventTicketList;
+    private List<Product> productList;
 
 }

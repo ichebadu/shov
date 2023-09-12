@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.iche</groupId>
-    <artifactId>discovery-service</artifactId>
+    <artifactId>discovery-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>discovery-service</name>
     <description>discovery-service</description>

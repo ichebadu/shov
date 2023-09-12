@@ -13,3 +13,4 @@ spring:
     properties:
       hibernate:
         format_sql: true
+paystack-secret-key: sk_test_b5f7fd5c49ff3a0fc5e9ed76803e63cd523599e5

@@ -1,6 +1,7 @@
 package com.iche.paymentservice.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iche.paymentservice.utils.PaystackUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +23,10 @@ public class Config {
     public ObjectMapper objectMapper(){
         return new ObjectMapper();
     }
-
+    @Bean
+    public PaystackUtil paystackUtil(){
+        return new PaystackUtil();
+    }
 
 
 }

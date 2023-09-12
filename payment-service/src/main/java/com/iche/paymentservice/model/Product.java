@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-public class EventTicket {
+public class Product {
     @Id
     private String Id;
     private String name;

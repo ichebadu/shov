@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public String createOrder(OrderRequest orderRequest){
+    public String placeOrder(OrderRequest orderRequest){
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
         System.out.println(order);
@@ -58,18 +58,13 @@ public class OrderServiceImpl implements OrderService {
         boolean allProductsInStock=Arrays.stream(inventoryResponsesArray).allMatch(InventoryResponse::isInStock);
         if(allProductsInStock){
             orderRepository.save(order);
+            System.out.println(order);
+            return "Order placed successfully";
         }else{
             throw new ProductNotInStock("product is not in stuck please try again later");
         }
-
-        System.out.println("<>>>>>>>>>>>>>>>>>>>>>{}>>>>>>>>>>>>>>>>>>"+ order);
-        return "processed";
-//
-//                OrderResponse.builder()
-//                .orderLineItemsDtoList(orderRequest.getOrderLineItemsDtoList())
-//                .build();
-
     }
+
     public OrderLineItems OrderLineItemsListMapToDTO(OrderLineItemsDto orderLineItemsDto){
         OrderLineItems orderLineItems = new OrderLineItems();
         orderLineItems.setSkuCode(orderLineItemsDto.getSkuCode());

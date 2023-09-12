@@ -4,8 +4,10 @@ eureka:
     fetch-registry: false
   instance:
     hostname: localhost
+
 server:
   port: 8761
+
 spring:
   application:
-    name: discovery-service
+    name: discovery-server

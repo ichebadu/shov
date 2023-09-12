@@ -1,5 +1,6 @@
 package com.iche.paymentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +24,9 @@ public class Payments {
     private String buyerName;
     private Integer qty;
     @OneToOne
-    private EventTicket eventTicket;
+    private Product product;
     @OneToOne
+    @JsonIgnore
     private User buyer;
 
 }
